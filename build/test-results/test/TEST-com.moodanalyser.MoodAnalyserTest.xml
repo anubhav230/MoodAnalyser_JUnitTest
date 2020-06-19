@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-18T18:40:29" hostname="LAPTOP-GT6OG951" time="0.001">
+<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-19T14:53:25" hostname="LAPTOP-GT6OG951" time="0.001">
   <properties/>
   <testcase name="giveMassage_WhenSad_ShouldReturnSad" classname="com.moodanalyser.MoodAnalyserTest" time="0.001"/>
   <testcase name="givenMassage_WhenHappy_ShouldReturnHappy" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
