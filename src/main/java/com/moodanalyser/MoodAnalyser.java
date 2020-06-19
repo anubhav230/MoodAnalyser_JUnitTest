@@ -3,18 +3,28 @@ package com.moodanalyser;
 public class MoodAnalyser {
     String mood;
 
+    /**
+     * parameterized constructor
+     * @param mood
+     */
     public MoodAnalyser(String mood) {
         this.mood = mood;
     }
 
-    public String analyseMood() {
+    /**
+     * method for checking mood with null
+     * @return
+     */
+    public String analyseMood() throws MoodAnalysisException {
         try {
+            if (mood.length() == 0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EnteredEmpty, "Enter correct message");
             if (mood.contains("I am in Sad mood"))
-                return mood = "Sad";
+                return "Sad";
             else
-                return mood = "Happy";
+                return "Happy";
         } catch (NullPointerException empty) {
-            return "Happy";
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EnteredNull, "Enter correct message");
         }
     }
 }
