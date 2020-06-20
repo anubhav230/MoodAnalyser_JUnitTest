@@ -63,7 +63,7 @@ public class MoodAnalyserTest {
         try {
             moodAnalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals(MoodAnalysisException.ExceptionType.EnteredNull, e.type);
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTEREDNULL, e.type);
         }
     }
 
@@ -73,7 +73,7 @@ public class MoodAnalyserTest {
         try {
             moodAnalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals(MoodAnalysisException.ExceptionType.EnteredEmpty, e.type);
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTEREDEMPTY, e.type);
         }
 
     }
