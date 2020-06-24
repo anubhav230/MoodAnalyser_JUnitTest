@@ -4,19 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.lang.reflect.Constructor;
+
+
 public class MoodAnalyserTest {
-
-    @Test
-    public void givenMoodAnalyser_WhenProper_shouldReturnObject() {
-        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
-        try {
-            String mood = moodAnalyser.analyseMood();
-            Assert.assertEquals("Happy", mood);
-        } catch (MoodAnalysisException e) {
-            e.printStackTrace();
-        }
-    }
-
 
 
     @Test
@@ -87,4 +78,29 @@ public class MoodAnalyserTest {
         }
     }
 
+    @Test
+    public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() {
+        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
+        try {
+            String mood = moodAnalyser.analyseMood();
+            Assert.assertEquals("Happy", mood);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() {
+        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
+        Assert.assertSame(new MoodAnalyser("I am in Happy mood"), moodAnalyser);
+    }
+
+    @Test
+    public void givenMoodAnalyserClass_WhenWrongClassName_shouldReturnObject() {
+        try {
+            MoodAnalyserFactory.getConstructor("Mood");
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS, e.type);
+        }
+    }
 }
