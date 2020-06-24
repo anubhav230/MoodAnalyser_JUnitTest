@@ -96,9 +96,18 @@ public class MoodAnalyserTest {
     }
 
     @Test
-    public void givenMoodAnalyserClass_WhenWrongClassName_shouldReturnObject() {
+    public void givenMoodAnalyserClass_WhenWrongClassName_shouldThrowMoodAnalysisException() {
         try {
             MoodAnalyserFactory.getConstructor("Mood");
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS, e.type);
+        }
+    }
+
+    @Test
+    public void givenMoodAnalyserClass_WhenWrongMethodName_shouldThrowMoodAnalysisException() {
+        try {
+            MoodAnalyserFactory.getConstructor("MoodAnalyser");
         } catch (MoodAnalysisException e) {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS, e.type);
         }
