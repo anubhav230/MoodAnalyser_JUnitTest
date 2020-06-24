@@ -7,6 +7,19 @@ import org.junit.rules.ExpectedException;
 public class MoodAnalyserTest {
 
     @Test
+    public void givenMoodAnalyser_WhenProper_shouldReturnObject() {
+        MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
+        try {
+            String mood = moodAnalyser.analyseMood();
+            Assert.assertEquals("Happy", mood);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    @Test
     public void giveMassage_WhenSad_ShouldReturnSad() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad mood");
         try {
@@ -16,7 +29,6 @@ public class MoodAnalyserTest {
         } catch (MoodAnalysisException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -29,7 +41,6 @@ public class MoodAnalyserTest {
         } catch (MoodAnalysisException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -42,7 +53,6 @@ public class MoodAnalyserTest {
         } catch (MoodAnalysisException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -55,8 +65,8 @@ public class MoodAnalyserTest {
         } catch (MoodAnalysisException e) {
             e.printStackTrace();
         }
-
     }
+
     @Test
     public void givenMassage_WhenNull_ShouldThrowException_WithoutExceptionRule() {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
@@ -75,10 +85,6 @@ public class MoodAnalyserTest {
         } catch (MoodAnalysisException e) {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTEREDEMPTY, e.type);
         }
-
     }
-
-
-
 
 }

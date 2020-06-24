@@ -1,7 +1,7 @@
 package com.moodanalyser;
 
 public class MoodAnalyser {
-    private final String mood;
+    private String mood;
 
     /**
      * parameterized constructor
@@ -9,6 +9,10 @@ public class MoodAnalyser {
      */
     public MoodAnalyser(String mood) {
         this.mood = mood;
+    }
+    public String analyseMood (String mood) throws MoodAnalysisException {
+        this.mood = mood;
+        return analyseMood();
     }
 
     /**
