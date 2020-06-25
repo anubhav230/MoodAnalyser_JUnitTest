@@ -41,9 +41,15 @@ public class MoodAnalyser {
         }
     }
 
-    public boolean equals(MoodAnalyser other) {
-        if (this.mood.equals(other.mood))
-            return true;
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        MoodAnalyser that = (MoodAnalyser) o;
+        return Objects.equals(mood, that.mood);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mood);
+    }
+
 }
