@@ -1,7 +1,9 @@
 package com.moodanalyser;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
 import java.util.Objects;
 
 public class MoodAnalyserReflector {
@@ -37,5 +39,17 @@ public class MoodAnalyserReflector {
             throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.METHOD_INVOCATION_ISSUE, "method invocation issue");
         }
 
+    }
+
+    public static void setField(Object myObject, String fieldName, String fieldValue) throws MoodAnalysisException {
+        try {
+            Field field = myObject.getClass().getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(myObject, fieldValue);
+        } catch (NoSuchFieldException e) {
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.INVALID_FIELD, "give proper field name");
+        }catch (IllegalAccessException e) {
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.FIELD_SETTING_ISSUE, "issue while setting field value");
+        }
     }
 }

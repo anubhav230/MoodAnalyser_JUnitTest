@@ -75,7 +75,7 @@ public class MoodAnalyserTest {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTEREDEMPTY, e.type);
         }
     }
-
+    ////////////////
     @Test
     public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalysisException {
         MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
@@ -86,7 +86,7 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
-
+    ///////////////
     @Test
     public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() throws MoodAnalysisException {
         MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
@@ -113,6 +113,7 @@ public class MoodAnalyserTest {
         }
     }
 
+    //6.1
     @Test
     public void givenMoodAnalyserClass_WhenReflector_shouldReturnObject(){
         try {
@@ -123,4 +124,30 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
+
+    //6.2
+    @Test
+    public void givenMoodAnalyserClass_WhenReflector_shouldThrowException(){
+        try {
+            Object MyObject =  MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "String");
+            Object analyseMood = MoodAnalyserReflector.invokeMethod(MyObject, "Mood");
+            Assert.assertEquals("Happy", analyseMood);
+        } catch (MoodAnalysisException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //7.1
+    @Test
+    public void giveMoodAnalyser_OnChangMood_shouldReturnHappy (){
+        try {
+            Object MyObject =  MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "String");
+            MoodAnalyserReflector.setField(MyObject,"mood", "I am in Happy mood");
+            Object analyseMood = MoodAnalyserReflector.invokeMethod(MyObject, "analyseMood");
+            Assert.assertEquals("Happy", analyseMood);
+        } catch (MoodAnalysisException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
