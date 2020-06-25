@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 
 public class MoodAnalyserTest {
@@ -92,7 +93,7 @@ public class MoodAnalyserTest {
     @Test
     public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() {
         MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in Happy mood");
-        Assert.assertSame(new MoodAnalyser("I am in Happy mood"), moodAnalyser);
+        Assert.assertSame(new MoodAnalyser(), moodAnalyser);
     }
 
     @Test
@@ -107,9 +108,18 @@ public class MoodAnalyserTest {
     @Test
     public void givenMoodAnalyserClass_WhenWrongMethodName_shouldThrowMoodAnalysisException() {
         try {
-            MoodAnalyserFactory.getConstructor("MoodAnalyser");
+            MoodAnalyserFactory.getConstructor("Analyser");
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS, e.type);
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
+    }
+
+    @Test
+    public void givenMoodAnalyserParamConstructor_WhenProper_ShouldReturnObject() throws MoodAnalysisException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy mood");
+        Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+        MoodAnalyser moodAnalyser1 = MoodAnalyserFactory.createMoodAnalyser(moodAnalyserConstructor, "I am in Happy mood");
+        boolean result = moodAnalyser.equals(moodAnalyser1);
+        Assert.assertEquals(true, result);
     }
 }
