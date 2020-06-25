@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-25T18:10:42" hostname="LAPTOP-GT6OG951" time="0.003">
+<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-25T19:07:17" hostname="LAPTOP-GT6OG951" time="0.004">
   <properties/>
-  <testcase name="giveMoodAnalyser_OnChangMood_shouldReturnHappy" classname="com.moodanalyser.MoodAnalyserTest" time="0.003"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="givenMoodAnalysisWithParametrizedConstructor_WhenImproper_ShouldThrowMoodAnalysisException" classname="com.moodanalyser.MoodAnalyserTest" time="0.004"/>
+  <system-out><![CDATA[wrong method
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

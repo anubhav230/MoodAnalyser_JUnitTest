@@ -46,6 +46,8 @@ public class MoodAnalyserReflector {
             Field field = myObject.getClass().getDeclaredField(fieldName);
             field.setAccessible(true);
             field.set(myObject, fieldValue);
+            if (fieldValue.length() == 0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_VALUE, "Your field value is null");
         } catch (NoSuchFieldException e) {
             throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.INVALID_FIELD, "give proper field name");
         }catch (IllegalAccessException e) {

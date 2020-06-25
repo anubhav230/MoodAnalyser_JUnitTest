@@ -75,25 +75,23 @@ public class MoodAnalyserTest {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTEREDEMPTY, e.type);
         }
     }
-    ////////////////
-    @Test
-    public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalysisException {
-        MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
-        try {
-            String mood = moodAnalyser.analyseMood();
-            Assert.assertEquals("Happy", mood);
-        } catch (MoodAnalysisException e) {
-            e.printStackTrace();
-        }
-    }
-    ///////////////
-    @Test
-    public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() throws MoodAnalysisException {
-        MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
-        Assert.assertEquals(new MoodAnalyser("I am in Happy mood"), moodAnalyser);
-    }
-
-
+//    ////////////////
+//    @Test
+//    public void givenMoodAnalyserClass_WhenProper_shouldReturnObject() throws MoodAnalysisException {
+//        MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
+//        try {
+//            String mood = moodAnalyser.analyseMood();
+//            Assert.assertEquals("Happy", mood);
+//        } catch (MoodAnalysisException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    ///////////////
+//    @Test
+//    public void givenMoodAnalyserClass2_WhenProper_shouldReturnObject() throws MoodAnalysisException {
+//        MoodAnalyser moodAnalyser = MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser","I am in Happy mood", "String.class");
+//        Assert.assertEquals(new MoodAnalyser("I am in Happy mood"), moodAnalyser);
+//    }
 
     @Test
     public void givenMoodAnalyserClass_WhenWrongMethodName_shouldThrowMoodAnalysisException() {
@@ -107,7 +105,7 @@ public class MoodAnalyserTest {
     @Test
     public void givenMoodAnalysisWithParametrizedConstructor_WhenImproper_ShouldThrowMoodAnalysisException() {
         try {
-            MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "Integer");
+            MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "Double");
         } catch (MoodAnalysisException e) {
             System.out.println(e.getMessage());
         }
@@ -143,6 +141,31 @@ public class MoodAnalyserTest {
         try {
             Object MyObject =  MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "String");
             MoodAnalyserReflector.setField(MyObject,"mood", "I am in Happy mood");
+            Object analyseMood = MoodAnalyserReflector.invokeMethod(MyObject, "analyseMood");
+            Assert.assertEquals("Happy", analyseMood);
+        } catch (MoodAnalysisException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //7.2
+    @Test
+    public void giveMoodAnalyser_WhileInvalidField_shouldThrowException (){
+        try {
+            Object MyObject =  MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "String");
+            MoodAnalyserReflector.setField(MyObject,"mood", "I am in Happy mood");
+            Object analyseMood = MoodAnalyserReflector.invokeMethod(MyObject, "analyseMood");
+            Assert.assertEquals("Happy", analyseMood);
+        } catch (MoodAnalysisException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void giveMoodAnalyser_WhileFieldValueIsEmpty_shouldThrowException (){
+        try {
+            Object MyObject =  MoodAnalyserReflector.createMoodAnalyser("com.moodanalyser.MoodAnalyser", "I am in Happy mood", "String");
+            MoodAnalyserReflector.setField(MyObject,"mood", "");
             Object analyseMood = MoodAnalyserReflector.invokeMethod(MyObject, "analyseMood");
             Assert.assertEquals("Happy", analyseMood);
         } catch (MoodAnalysisException e) {
