@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-06-25T20:54:46" hostname="LAPTOP-GT6OG951" time="0.027">
+<testsuite name="com.moodanalyser.MoodAnalyserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-06-26T04:33:54" hostname="LAPTOP-GT6OG951" time="0.048">
   <properties/>
-  <testcase name="givenMassage_WhenEmpty_ShouldThrowException_WithoutExceptionRule" classname="com.moodanalyser.MoodAnalyserTest" time="0.002"/>
-  <testcase name="giveMassage_WhenSad_ShouldReturnSad" classname="com.moodanalyser.MoodAnalyserTest" time="0.003"/>
-  <testcase name="giveMoodAnalyser_OnChangMood_shouldReturnHappy" classname="com.moodanalyser.MoodAnalyserTest" time="0.002"/>
-  <testcase name="givenMoodAnalyserClass_WhenReflector_shouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.003"/>
+  <testcase name="givenMassage_WhenEmpty_ShouldThrowException_WithoutExceptionRule" classname="com.moodanalyser.MoodAnalyserTest" time="0.001"/>
+  <testcase name="giveMassage_WhenSad_ShouldReturnSad" classname="com.moodanalyser.MoodAnalyserTest" time="0.006"/>
+  <testcase name="giveMoodAnalyser_OnChangMood_shouldReturnHappy" classname="com.moodanalyser.MoodAnalyserTest" time="0.003"/>
+  <testcase name="givenMoodAnalyserClass_WhenReflector_shouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.002"/>
   <testcase name="giveMoodAnalyser_WhileFieldValueIsEmpty_shouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
   <testcase name="givenMassage_WhenHappy_ShouldReturnHappy" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
-  <testcase name="givenMoodAnalyserClass_WhenProper_shouldReturnObject" classname="com.moodanalyser.MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenMoodAnalyserClass_WhenProper_shouldReturnObject" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
   <testcase name="giveMoodAnalyser_WhileInvalidField_shouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
   <testcase name="givenMassage_WhenNull_ShouldThrowException_WithoutExceptionRule" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
-  <testcase name="givenMassage_WhenEmpty_ShouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.006"/>
-  <testcase name="givenMassage_WhenNull_ShouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.004"/>
+  <testcase name="givenMassage_WhenEmpty_ShouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.01"/>
+  <testcase name="givenMassage_WhenNull_ShouldThrowException" classname="com.moodanalyser.MoodAnalyserTest" time="0.013"/>
   <testcase name="givenMoodAnalyserClass_WhenWrongMethodName_shouldThrowMoodAnalysisException" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
-  <testcase name="givenMoodAnalysisWithParametrizedConstructor_WhenImproper_ShouldThrowMoodAnalysisException" classname="com.moodanalyser.MoodAnalyserTest" time="0.0"/>
-  <testcase name="givenMoodAnalyserClass_WhenReflector_shouldReturnObject" classname="com.moodanalyser.MoodAnalyserTest" time="0.003"/>
+  <testcase name="givenMoodAnalysisWithParametrizedConstructor_WhenImproper_ShouldThrowMoodAnalysisException" classname="com.moodanalyser.MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenMoodAnalyserClass_WhenReflector_shouldReturnObject" classname="com.moodanalyser.MoodAnalyserTest" time="0.007"/>
   <system-out><![CDATA[give proper method name
 Your field value is null
 wrong method
 ]]></system-out>
-  <system-err><![CDATA[com.moodanalyser.MoodAnalysisException: Enter correct message
-	at com.moodanalyser.MoodAnalyser.analyseMood(MoodAnalyser.java:33)
-	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenEmpty_ShouldThrowException(MoodAnalyserTest.java:53)
+  <system-err><![CDATA[com.moodanalyser.exception.MoodAnalysisException: Enter correct message
+	at com.moodanalyser.services.MoodAnalyser.analyseMood(MoodAnalyser.java:33)
+	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenEmpty_ShouldThrowException(MoodAnalyserTest.java:54)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -69,9 +69,9 @@ wrong method
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:830)
-com.moodanalyser.MoodAnalysisException: Enter correct message
-	at com.moodanalyser.MoodAnalyser.analyseMood(MoodAnalyser.java:39)
-	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenNull_ShouldThrowException(MoodAnalyserTest.java:41)
+com.moodanalyser.exception.MoodAnalysisException: Enter correct message
+	at com.moodanalyser.services.MoodAnalyser.analyseMood(MoodAnalyser.java:39)
+	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenNull_ShouldThrowException(MoodAnalyserTest.java:42)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -119,9 +119,9 @@ com.moodanalyser.MoodAnalysisException: Enter correct message
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:830)
-com.moodanalyser.MoodAnalysisException: wrong class
-	at com.moodanalyser.MoodAnalyserReflector.createMoodAnalyser(MoodAnalyserReflector.java:19)
-	at com.moodanalyser.MoodAnalyserTest.givenMoodAnalyserClass_WhenReflector_shouldReturnObject(MoodAnalyserTest.java:118)
+com.moodanalyser.exception.MoodAnalysisException: wrong class
+	at com.moodanalyser.services.MoodAnalyserReflector.createMoodAnalyser(MoodAnalyserReflector.java:21)
+	at com.moodanalyser.MoodAnalyserTest.givenMoodAnalyserClass_WhenReflector_shouldReturnObject(MoodAnalyserTest.java:113)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

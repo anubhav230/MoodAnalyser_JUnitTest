@@ -1,6 +1,6 @@
-package com.moodanalyser;
+package com.moodanalyser.services;
 
-import java.util.Objects;
+import com.moodanalyser.exception.MoodAnalysisException;
 
 public class MoodAnalyser {
     private String mood;

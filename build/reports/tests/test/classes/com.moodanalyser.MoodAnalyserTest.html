@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.024s</div>
+<div class="counter">0.043s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,12 +82,12 @@
 </thead>
 <tr>
 <td class="success">giveMassage_WhenSad_ShouldReturnSad</td>
-<td class="success">0.003s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">giveMoodAnalyser_OnChangMood_shouldReturnHappy</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -102,12 +102,12 @@
 </tr>
 <tr>
 <td class="success">givenMassage_WhenEmpty_ShouldThrowException</td>
-<td class="success">0.006s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenMassage_WhenEmpty_ShouldThrowException_WithoutExceptionRule</td>
-<td class="success">0.002s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -117,7 +117,7 @@
 </tr>
 <tr>
 <td class="success">givenMassage_WhenNull_ShouldThrowException</td>
-<td class="success">0.004s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -127,17 +127,17 @@
 </tr>
 <tr>
 <td class="success">givenMoodAnalyserClass_WhenProper_shouldReturnObject</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenMoodAnalyserClass_WhenReflector_shouldReturnObject</td>
-<td class="success">0.003s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenMoodAnalyserClass_WhenReflector_shouldThrowException</td>
-<td class="success">0.003s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -147,7 +147,7 @@
 </tr>
 <tr>
 <td class="success">givenMoodAnalysisWithParametrizedConstructor_WhenImproper_ShouldThrowMoodAnalysisException</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -164,9 +164,9 @@ wrong method
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>com.moodanalyser.MoodAnalysisException: Enter correct message
-	at com.moodanalyser.MoodAnalyser.analyseMood(MoodAnalyser.java:33)
-	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenEmpty_ShouldThrowException(MoodAnalyserTest.java:53)
+<pre>com.moodanalyser.exception.MoodAnalysisException: Enter correct message
+	at com.moodanalyser.services.MoodAnalyser.analyseMood(MoodAnalyser.java:33)
+	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenEmpty_ShouldThrowException(MoodAnalyserTest.java:54)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -214,9 +214,9 @@ wrong method
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:830)
-com.moodanalyser.MoodAnalysisException: Enter correct message
-	at com.moodanalyser.MoodAnalyser.analyseMood(MoodAnalyser.java:39)
-	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenNull_ShouldThrowException(MoodAnalyserTest.java:41)
+com.moodanalyser.exception.MoodAnalysisException: Enter correct message
+	at com.moodanalyser.services.MoodAnalyser.analyseMood(MoodAnalyser.java:39)
+	at com.moodanalyser.MoodAnalyserTest.givenMassage_WhenNull_ShouldThrowException(MoodAnalyserTest.java:42)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -264,9 +264,9 @@ com.moodanalyser.MoodAnalysisException: Enter correct message
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:830)
-com.moodanalyser.MoodAnalysisException: wrong class
-	at com.moodanalyser.MoodAnalyserReflector.createMoodAnalyser(MoodAnalyserReflector.java:19)
-	at com.moodanalyser.MoodAnalyserTest.givenMoodAnalyserClass_WhenReflector_shouldReturnObject(MoodAnalyserTest.java:118)
+com.moodanalyser.exception.MoodAnalysisException: wrong class
+	at com.moodanalyser.services.MoodAnalyserReflector.createMoodAnalyser(MoodAnalyserReflector.java:21)
+	at com.moodanalyser.MoodAnalyserTest.givenMoodAnalyserClass_WhenReflector_shouldReturnObject(MoodAnalyserTest.java:113)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -325,7 +325,7 @@ com.moodanalyser.MoodAnalysisException: wrong class
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1.1</a> at 26-Jun-2020, 2:24:46 am</p>
+<a href="http://www.gradle.org">Gradle 6.1.1</a> at 26-Jun-2020, 10:03:54 am</p>
 </div>
 </div>
 </body>

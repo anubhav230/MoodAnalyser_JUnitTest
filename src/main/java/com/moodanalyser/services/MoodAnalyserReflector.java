@@ -1,4 +1,6 @@
-package com.moodanalyser;
+package com.moodanalyser.services;
+
+import com.moodanalyser.exception.MoodAnalysisException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -40,7 +42,6 @@ public class MoodAnalyserReflector {
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.METHOD_INVOCATION_ISSUE, "method invocation issue");
         }
-
     }
 
     /**
